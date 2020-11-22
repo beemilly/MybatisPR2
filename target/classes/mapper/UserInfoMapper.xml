@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.study.dao.UserInfoDao">
+
+	<select id="readAllUserInfo" resultType="UserInfo">
+		select * from user_info
+	</select>
+
+	<insert id="resUser">
+		insert into user_info (id, password, name, age) values (#{id}, #{password}, #{name}, #{age})
+	</insert>
+
+	<update id="modifyUserInfo">
+		update user_info set password = ${password}, name = #{name}, age = ${age} where id = #{id}
+	</update>
+
+	<delete id="deleteUserInfo">
+		delete from user_info where id = #{id} and password = #{password}
+	</delete>
+
+</mapper>
